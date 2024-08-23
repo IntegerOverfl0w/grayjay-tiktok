@@ -1,4 +1,4 @@
 fastapi
-TikTokApi
+TikTokApi @ git+https://github.com/IntegerOverfl0w/TikTok-Api@279e2b2
 uvicorn
 playwright==1.39.0
