@@ -1,0 +1,4 @@
+fastapi
+TikTokApi
+uvicorn
+playwright==1.39.0
