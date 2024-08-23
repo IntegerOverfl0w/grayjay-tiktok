@@ -1,11 +1,11 @@
 {
 	"name": "Tiktok",
 	"description": "Tiktok plugin",
-	"author": "FUTO",
-	"authorUrl": "https://futo.org",
+	"author": "IntegerOverflow",
+	"authorUrl": "https://github.com/IntegerOverfl0w",
 	
-	"sourceUrl": "https://plugins.grayjay.app/tiktok/TiktokConfig.json",
-	"repositoryUrl": "https://futo.org",
+	"sourceUrl": "https://github.com/IntegerOverfl0w/grayjay-tiktok/blob/main/TiktokConfig.json",
+	"repositoryUrl": "https://github.com/IntegerOverfl0w/grayjay-tiktok",
 	"scriptUrl": "./TiktokScript.js",
 	"version": 23,
 	
