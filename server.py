@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
+from contextlib import asynccontextmanager
 
 from TikTokApi import TikTokApi
 from typing import Optional
@@ -8,21 +9,20 @@ import os
 import io
 import traceback
 
-app = FastAPI()
 tiktok_api = None
 
-@app.on_event("startup")
-async def startup_event():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     global tiktok_api
     tiktok_api = TikTokApi()
     ms_token = "MSTOKEN"
     await tiktok_api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, headless=False)
-
-@app.on_event("shutdown")
-async def shutdown_event():
+    yield
     if tiktok_api:
         await tiktok_api.close_sessions()
         await tiktok_api.stop_playwright()
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get('/user/info/{username}')
 async def get_user_info(username: str):
@@ -100,4 +100,4 @@ async def video_info(url: str):
 
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run("test2:app", host="0.0.0.0", port=3002, reload=True)
+    uvicorn.run("server:app", host="0.0.0.0", port=3002)
