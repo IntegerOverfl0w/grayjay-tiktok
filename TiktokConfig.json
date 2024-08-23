@@ -1,0 +1,23 @@
+{
+	"name": "Tiktok",
+	"description": "Tiktok plugin",
+	"author": "FUTO",
+	"authorUrl": "https://futo.org",
+	
+	"sourceUrl": "https://plugins.grayjay.app/tiktok/TiktokConfig.json",
+	"repositoryUrl": "https://futo.org",
+	"scriptUrl": "./TiktokScript.js",
+	"version": 23,
+	
+	"iconUrl": "./tiktok.png",
+	"id": "82b8fefc-24aa-11ee-be56-0242ac120002",
+	
+	"scriptSignature": "",
+	"scriptPublicKey": "",
+	"packages": ["Http", "DOMParser"],
+	
+	"allowEval": false,
+	"allowUrls": [
+		"192.168.92.182"
+	]
+}
