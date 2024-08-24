@@ -17,6 +17,9 @@ Missing features:
 - comment replies
 - user subscriptions (coming soon)
 
+## Preview
+https://integeroverfl0w.github.io/grayjay-tiktok/preview.mp4
+
 ### Server setup
 ```console
 # First clone the repo
@@ -35,6 +38,10 @@ cp secrets.sample.py secrets.py
 # ..and then run the server
 python server.py
 ```
+
+## Preview
+
+https://github.com/user-attachments/assets/979af6b5-9b79-40eb-857e-4dbe3e60191b
 
 ### Install plugin
 ![qr-code](./qr-code.png)
