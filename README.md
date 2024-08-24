@@ -14,7 +14,14 @@ git clone https://github.com/IntegerOverfl0w/grayjay-tiktok
 # Then Setup the python virtual environment using the setup.sh script
 sh script.sh && source tt_env/bin/activate
 
-# ..and now run the server
+# open up tiktok.com in a browser, click the search bar and search for a user then copy the ms_token cookie from the browser 
+# in chrome: right click + Inspect -> Go to the "Application" tab (may be hidden under ">>") ->
+# ... Click on Local Storage -> https://www.tiktok.com -> copy the msToken value
+
+# Make sure to open up secrets.py after running this command and paste your MSTOKEN value
+cp secrets.sample.py secrets.py
+
+# ..and then run the server
 python server.py
 ```
 
