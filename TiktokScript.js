@@ -1,22 +1,25 @@
 const PLATFORM = "Tiktok";
 
-const API_URL = "http://192.168.92.182:3002";
-const URL_SEARCH_CHANNEL = `${API_URL}/search/`;
-const URL_CHANNEL_INFO = `${API_URL}/user/info/`;
-const URL_CHANNEL_VIDEOS = `${API_URL}/user/videos`;
-const URL_VIDEO_COMMENTS = `${API_URL}/video/comments`;
-const URL_VIDEO_INFO = `${API_URL}/video/info`;
-const URL_VIDEO_STREAM = `${API_URL}/video/stream`;
+const PYTHON_SERVER_ADDRESS = "http://192.168.1.108:3002";
+const URL_SEARCH_CHANNEL = "/search/";
+const URL_CHANNEL_INFO = "/user/info/";
+const URL_CHANNEL_VIDEOS = "/user/videos";
+const URL_VIDEO_COMMENTS = "/video/comments";
+const URL_VIDEO_INFO = "/video/info";
+const URL_VIDEO_STREAM = "/video/stream";
 
 const REGEX_VIDEO_CHANNEL_URL =  /^(https:\/\/)?(www\.|m\.)?tiktok\.com\/@([\w.-]+)(\?.*)?$/
 const REGEX_EMBED_VIDEO_URL = /^(https:\/\/)?(www\.|m\.)?tiktok\.com\/@([\w.-]+)\/video\/\d+(\?.*)?$/
 const REGEX_VIDEO_ID_URL = /@[\w.-]+\/video\/(\d+)/
 
 var config = {};
+let local_settings;
 
 //Source Methods
 source.enable = function(conf, settings, savedState){
 	config = conf ?? {};
+	local_settings = settings;
+	log(settings);
 	log(config);
 }
 source.getHome = function() {
@@ -49,7 +52,7 @@ source.searchChannelContents = function (channelUrl, query, type, order, filters
 
 source.searchChannels = function (query) {
 	const results = []
-	const res = http.GET(URL_SEARCH_CHANNEL + query, {});
+	const res = http.GET(PYTHON_SERVER_ADDRESS+URL_SEARCH_CHANNEL+query, {});
 	if (!res.isOk) {
 		return [];
 	}
@@ -81,8 +84,7 @@ source.getChannel = function(url) {
 	}
 
 	const username = match[3];
-	console.log(URL_CHANNEL_INFO+username);
-	const res = http.GET(URL_CHANNEL_INFO+username, {});
+	const res = http.GET(PYTHON_SERVER_ADDRESS+URL_CHANNEL_INFO+username, {});
 	if(!res.isOk){
 		throw new ScriptException(`Failed to get channel (${res.status}).`);
 	}
@@ -111,10 +113,8 @@ source.getChannelContents = function(url, type, order, filters) {
 	}
 
 	const username = match[3];
-
-	console.log(`query: ${URL_CHANNEL_VIDEOS+"?username="+username}`)
 	
-	const res = http.POST(URL_CHANNEL_VIDEOS+"?username="+username, '{}', {}, false);
+	const res = http.POST(PYTHON_SERVER_ADDRESS+URL_CHANNEL_VIDEOS+"?username="+username, '{}', {}, false);
 	if(!res.isOk){
 		throw new ScriptException(`Failed to get channel (${res.body}).`);
 	}
@@ -152,7 +152,7 @@ source.isContentDetailsUrl = function(url) {
 	return REGEX_EMBED_VIDEO_URL.test(url);
 };
 source.getContentDetails = function(url) {
-	const res = http.GET(`${URL_VIDEO_INFO}?url=${url}`, {});
+	const res = http.GET(`${PYTHON_SERVER_ADDRESS+URL_VIDEO_INFO}?url=${url}`, {});
 	if (!res.isOk) {
 		throw new ScriptException(`Failed to get video details (${res.body}).`);
 	}
@@ -165,7 +165,7 @@ source.getContentDetails = function(url) {
 	const sources = [];
 	sources.push(new VideoUrlSource({
 		name: "Original 540P",
-		url: `${URL_VIDEO_STREAM}?url=${url}`,
+		url: `${PYTHON_SERVER_ADDRESS+URL_VIDEO_STREAM}?url=${url}`,
 		container: "video/mp4",
 		width: 540,
 		duration: video.duration
@@ -200,7 +200,7 @@ source.getComments = function (url) {
 		throw new ScriptException(`Failed to get video id from url. ${url}`);
 	}
 	const video_id = match[1];
-	const res = http.POST(`${URL_VIDEO_COMMENTS}?video_id=${video_id}`, '{}', {}, false);
+	const res = http.POST(`${PYTHON_SERVER_ADDRESS+URL_VIDEO_COMMENTS}?video_id=${video_id}`, '{}', {}, false);
 	if(!res.isOk){
 		throw new ScriptException(`Failed to get video comments (${res.body}).`);
 	}

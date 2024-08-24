@@ -5,7 +5,7 @@ JS_FILE_PATH=$1
 CONFIG_FILE_PATH=$2
 
 # Decode and save the private key to a temporary file
-echo "$SIGNING_PRIVATE_KEY" > tmp_private_key.pem
+cat $SIGNING_PRIVATE_KEY > tmp_private_key.pem
 
 # Validate private key
 if ! openssl rsa -check -noout -in tmp_private_key.pem > /dev/null 2>&1; then

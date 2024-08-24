@@ -3,13 +3,13 @@
   "description": "Tiktok plugin",
   "author": "IntegerOverflow",
   "authorUrl": "https://github.com/IntegerOverfl0w",
-  "sourceUrl": "https://github.com/IntegerOverfl0w/grayjay-tiktok/blob/main/TiktokConfig.json",
+  "sourceUrl": "https://integeroverfl0w.github.io/grayjay-tiktok/TiktokConfig.json",
   "repositoryUrl": "https://github.com/IntegerOverfl0w/grayjay-tiktok",
   "scriptUrl": "./TiktokScript.js",
   "version": 23,
   "iconUrl": "./tiktok.png",
   "id": "82b8fefc-24aa-11ee-be56-0242ac120002",
-  "scriptSignature": "tIX9G2DiLjp4TGppOTFqLcOneuNVpFjUfcOvHS6dr/dqyvCyIwxNszujUBMCyiYCKfIS1JwaN0XXsqtUpti8x7/YEQsjMnjKinegx/Cxe5+hQ1wmDbNN3/0QrsziLS9dvsbuKXIShch4j1rjRM24+i074/ZPrggQnGoPMjXbQKFX/8N6OCBuyuknGDabFf6SBgu2W4pqkEbzGKlrrQVkB8oHSwBY7vANPjpFktOQOOKfxEeAcbqrO1vpdhNzUZvUkajPUitKv9j4mBtISbzCvBb6In65ehcouFoWqA29gj7pIztOg3p2h6ioe2dzsOTsbUja9FM14fE8fS3t0XalMw==",
+  "scriptSignature": "JQ3bX3c+0dhOdEtNZmeGSW0uCRCHl2Rn7UOKA59Cn1iHx1FwXa6fmbwfRX+ZvTeVF6D5hFRJDWZt3Bxda0kJrJb/XuwjyRCBLpZDB88skh4KCSPk38uh2Y/fpF2dH0sGnXw3262e1mqDbi7ppqLIai3++t4HkReRT0jpEBLVw3khc3guMOXp/kCMp874hg3GnWLIpNWVnHDY+PMJt4XqMPPHvCyj8pkk8hSWKv0pAqbk0BmLNUglPU8HkKuRZVxymIJ+UjPqdkaUOQv1TkA44/6s561DgKfqM6mDwsIlV7RBv5r9HGuQYojFNG++YGYqVTOcQrJxn5uNLW8YJLDOjA==",
   "scriptPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuIEFVvy+lLHB4cQoSQu4c/4i+pdjP5RH7CxgIMIs4kqjTf6hh0smO55GVN9Cer18j2pixEPNV5i4P+9iMsrg5bK4TVhbbsCm6UIUf4ohzTr/h0pmRRjNxe6EhFEiWCQSSyNYDeTLgYstxhYO4hsZFYJ5VW8HRw7vQ7LHUwkexJ2GB3SKhtQQy9yQnWaFtaQnAW+hsUZYrQ8AQzUSihoOtrullMpv00hucgs7UybpLW2JAG7De7RbglO2r/wr9ZB6HiGAnWNOx7av5qDJIQFH4C7y9YDHdziMx3QgW+P0xwtNajFig9vM6x0HJtWnpFaKqAlmhU/AWLfwf7OEDTNRjQIDAQAB",
   "packages": [
     "Http",
@@ -17,6 +17,18 @@
   ],
   "allowEval": false,
   "allowUrls": [
-    "192.168.92.182"
+    "everywhere"
+  ],
+  "settings": [
+    {
+      "variable": "pythonServerAddress",
+      "name": "Python server address",
+      "description": "The address of your python tiktok server.",
+      "type": "Dropdown",
+      "options": [
+        "https://localhost:3002",
+        "http://192.168.1.108:3002"
+      ]
+    }
   ]
 }
