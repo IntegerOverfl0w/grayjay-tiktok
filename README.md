@@ -17,3 +17,7 @@ sh script.sh && source tt_env/bin/activate
 # ..and now run the server
 python server.py
 ```
+
+### Install plugin
+![qr-code](./qr-code.png)
+[Click to Install](grayjay://plugin/https://integeroverfl0w.github.io/grayjay-tiktok/TiktokConfig.json)

@@ -3,3 +3,4 @@ __pycache__
 *.pem
 secrets.py
 ref.js
+.DS_Store
