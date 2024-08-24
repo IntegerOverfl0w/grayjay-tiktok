@@ -6,6 +6,17 @@ This plugin has 2 parts:
 - **Python server**: This server scrapes data from tiktok using [davidteacher/TiktokApi](https://github.com/davidteather/TikTok-Api).
 - **Grayjay plugin** This plugin communicates with the python server and allows you to view tiktok on your phone.
 
+Current features:
+- search tiktok users
+- view comments
+- view likes
+- watch user videos
+
+Missing features:
+- general search (not just users)
+- comment replies
+- user subscriptions (coming soon)
+
 ### Server setup
 ```console
 # First clone the repo
@@ -31,3 +42,9 @@ python server.py
 [Click to Install](grayjay://plugin/https://integeroverfl0w.github.io/grayjay-tiktok/TiktokConfig.json)
 
 <grayjay://plugin/https://integeroverfl0w.github.io/grayjay-tiktok/TiktokConfig.json>
+
+### TODO
+- CAPTCHA support
+- Obtain direct video url instead of streaming
+- Reverse engineer signing algorithm and perform it directly in the plugin without having a separate python server.
+- Have a config option for the python server address (need to make a PR to grayjay core as there is no string support, only boolean and dropdown support)
