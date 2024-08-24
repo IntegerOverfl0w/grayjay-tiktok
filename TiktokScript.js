@@ -129,7 +129,7 @@ source.getChannelContents = function(url, type, order, filters) {
 			id: new PlatformID(PLATFORM, v.id, config.id),
 			name: v.desc,
 			// thumbnails: new Thumbnails([new Thumbnail(v.video.cover, 0)]),
-			thumbnails: new Thumbnails([new Thumbnail(v.video.zoomCover["240"], 0)]),
+			thumbnails: new Thumbnails([new Thumbnail(v.video.zoomCover["720"], 0)]),
 			author: new PlatformAuthorLink(
 				new PlatformID(PLATFORM, v.author.id, config.id),
 				v.author.uniqueId,
@@ -174,7 +174,7 @@ source.getContentDetails = function(url) {
 	return new PlatformVideoDetails({
 		id: new PlatformID(PLATFORM, data.id, config.id),
 		name: data.desc,
-		thumbnails: new Thumbnails([new Thumbnail(video.zoomCover["240"])]),
+		thumbnails: new Thumbnails([new Thumbnail(video.zoomCover["720"])]),
 		author: new PlatformAuthorLink(
 			new PlatformID(PLATFORM, author.id, config.id),
 			author.uniqueId,
