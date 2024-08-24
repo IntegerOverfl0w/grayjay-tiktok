@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from TikTokApi import TikTokApi
 from typing import Optional
+from secrets import MSTOKEN
 import asyncio
 import os
 import io
@@ -15,7 +16,7 @@ tiktok_api = None
 async def lifespan(app: FastAPI):
     global tiktok_api
     tiktok_api = TikTokApi()
-    ms_token = "MSTOKEN"
+    ms_token = MSTOKEN
     await tiktok_api.create_sessions(ms_tokens=[ms_token], num_sessions=1, sleep_after=3, headless=False)
     yield
     if tiktok_api:
