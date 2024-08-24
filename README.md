@@ -20,4 +20,7 @@ python server.py
 
 ### Install plugin
 ![qr-code](./qr-code.png)
+
 [Click to Install](grayjay://plugin/https://integeroverfl0w.github.io/grayjay-tiktok/TiktokConfig.json)
+
+<grayjay://plugin/https://integeroverfl0w.github.io/grayjay-tiktok/TiktokConfig.json>
